@@ -22,7 +22,7 @@ repository               : "sametkenar/sametkenar.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "SametKenar.jpg"
   name             : "Samet Kenar"
   pronouns         : # example: "she/her"  
   bio              : "Kısa Biyografi"
