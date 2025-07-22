@@ -58,12 +58,12 @@ Skills
 Service and leadership
 ======
 * Executive Board Member, METU Statistics and Data Science Club
- * Head of Congressess Department
- * Coordinator of METU Statistics and Data Science Club Data'Speak 2021 (December 2021)
+  * Head of Congressess Department
+  * Coordinator of METU Statistics and Data Science Club Data'Speak 2021 (December 2021)
 * Active Member, METU Statistics and Data Science Club
- * Organization Team Member at 6th Finance, Statistics and Economy Congress (May 2021)
- * Organization Team Member at METU Statistics and Data Science Club Data'Speak (December 2020)
+  * Organization Team Member at 6th Finance, Statistics and Economy Congress (May 2021)
+  * Organization Team Member at METU Statistics and Data Science Club Data'Speak (December 2020)
 * Active Member, IEEE METU Student Branch
- * Organization Team Member at Campus Development Days (March 2020)
- * Organization Team Member at Global Game Jam ATOM (February 2020)
- * Organization Team Member at IEEE ODTÜ Pixery Hackathon (January 2020)
+  * Organization Team Member at Campus Development Days (March 2020)
+  * Organization Team Member at Global Game Jam ATOM (February 2020)
+  * Organization Team Member at IEEE ODTÜ Pixery Hackathon (January 2020)
