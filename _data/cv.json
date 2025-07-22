@@ -1,15 +1,15 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
+    "name": "Samet Kenar",
+    "email": "samet.kenarr@gmail.com",
     "phone": "",
-    "website": "https://academicpages.github.io",
+    "website": "https://sametkenar.github.io",
     "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
+      "city": "Ankara/Türkiye",
+      "countryCode": "",
       "region": ""
     },
     "profiles": [
