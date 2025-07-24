@@ -1,7 +1,10 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Analysis of 2022-2023 Football Players for Position Detection and Classification"
+excerpt: ""
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+The modern football uses data-driven analysis methods to evaluate player performance more objectively. Understanding and correctly classifying the roles of players on the field plays an important role in the decision making processes of technical teams. This study aimed to predict the main positions of players using comprehensive individual performance data. After eliminating missing data, various machine learning models are trained to evaluate the classification performance for each position.
+
+[GitHub](https://github.com/sametkenar/Analysis_of_2022_2023_Football_Players_for_Position_Detection_and_Classification)
+
