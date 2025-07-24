@@ -9,6 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
+[Download as PDF file.](/files/Samet_Kenar_CV.pdf){: download}
+
 Education
 ======
 
