@@ -16,14 +16,13 @@ Education
 
 Work Experience
 ======
-*  Management Analyst (Data Scientist), Presidency of The Republic of Türkiye Human Resources Office, 2024 October - 2025 May
+* Management Analyst (Data Scientist), Presidency of The Republic of Türkiye Human Resources Office, 2024 October - 2025 May
 
 * Data Science Intern, Presidency of The Republic of Türkiye Human Resources Office, 2024 June - 2024 September 
 
 * Corporate Banking Intern, Denizbank Capital Regional Directorate, 2023 August - a month
 
 * Investment Management and Control Intern, Ministry of Transport and Infrastructure, 2022 August - a month 
-
 
 Projects
 ========
@@ -32,9 +31,9 @@ Projects
 
 * Matching Qualified Interns with Employers (October 2024 - March 2025)
  * Authored draft article on ‘Matching Qualified Interns with Employers’, using National Internship Program data to model internship-offer odds. Tested 4 ML models (logistic regression, random forest, XGBoost, Lasso); random forest scored highest and surfaced key competencies via Mean Decrease Accuracy/Gini metrics.
+
 * Music Analysis on METU Students (November 2022 - January 2023)
  * Led a university-wide survey (409 students, 37 departments) and built an R analytics pipeline (ggplot, ANOVA, χ², regression – 7 methods) to profile music-listening behaviour, performance and psychology, revealing a pronounced psychological impact on students.  
-
 
 Skills
 ======
