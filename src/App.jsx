@@ -1,24 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './layouts/Layout';
 import Home from './pages/Home';
-import Talks from './pages/Talks';
-import Publications from './pages/Publications';
 import Projects from './pages/Projects';
-import Teaching from './pages/Teaching';
+import Experience from './pages/Experience';
+import Education from './pages/Education';
 
 function App() {
   return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/publications" element={<Publications />} />
-          <Route path="/talks" element={<Talks />} />
-          <Route path="/teaching" element={<Teaching />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <Layout>
+      <div className="max-w-6xl mx-auto px-6 space-y-32 pb-32">
+        <section id="home" className="pt-20">
+          <Home />
+        </section>
+        
+        <section id="projects">
+          <Projects />
+        </section>
+
+        <section id="education">
+          <Education />
+        </section>
+        
+        <section id="experience">
+          <Experience />
+        </section>
+      </div>
+    </Layout>
   );
 }
 

@@ -1,4 +1,4 @@
-export const teaching = [
+export const experience = [
   {
     title: "Management Analyst (Data Scientist)",
     type: "Professional Experience",
@@ -6,14 +6,6 @@ export const teaching = [
     date: "2024-10 - 2025-05",
     location: "Ankara, Türkiye",
     description: "Developing data-driven strategies and AI-powered analytical products for national-scale HR projects."
-  },
-  {
-    title: "B.S. in Statistics",
-    type: "Education",
-    venue: "Middle East Technical University (METU)",
-    date: "2019 - 2025",
-    location: "Ankara, Türkiye",
-    description: "Focused on Statistical Modeling, Machine Learning, and Data Science applications."
   },
   {
     title: "Data Science Intern",

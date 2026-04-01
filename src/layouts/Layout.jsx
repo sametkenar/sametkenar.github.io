@@ -1,78 +1,156 @@
-import { Link } from 'react-router-dom';
-import { Home, FolderOpen, BookOpen, Mic2, GraduationCap, Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { Home, FolderOpen, GraduationCap, Menu, X, FileText, Sun, Moon } from 'lucide-react';
+import { useState, useEffect } from 'react';
+
+// Sosyal Medya İkonları (SVG)
+const GithubIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.28 1.15-.28 2.35 0 3.5-.73 1.02-1.08 2.25-1 3.5 0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+);
+
+const LinkedinIcon = ({ size = 20 }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+);
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme(prev => prev === 'dark' ? 'light' : 'dark');
+  };
 
   const navItems = [
-    { name: 'Home', path: '/', icon: <Home size={20} /> },
-    { name: 'Projects', path: '/projects', icon: <FolderOpen size={20} /> },
-    { name: 'Publications', path: '/publications', icon: <BookOpen size={20} /> },
-    { name: 'Talks', path: '/talks', icon: <Mic2 size={20} /> },
-    { name: 'Teaching', path: '/teaching', icon: <GraduationCap size={20} /> },
+    { name: 'Home', path: '#home', icon: <Home size={18} /> },
+    { name: 'Projects', path: '#projects', icon: <FolderOpen size={18} /> },
+    { name: 'Education', path: '#education', icon: <GraduationCap size={18} /> },
+    { name: 'Experience', path: '#experience', icon: <GraduationCap size={18} /> },
   ];
+
+  const handleScroll = (e, targetId) => {
+    e.preventDefault();
+    const element = document.querySelector(targetId);
+    if (element) {
+      const offset = 100;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
+    }
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
-      <header className="sticky top-0 z-50 bg-[var(--bg)] border-b border-[var(--border)]">
-        <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <Link to="/" className="text-2xl font-bold text-[var(--text-h)]">
+      <header className="sticky top-0 z-50 bg-[var(--bg)]/80 backdrop-blur-xl border-b border-[var(--border)]">
+        <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+          <a 
+            href="#home" 
+            onClick={(e) => handleScroll(e, '#home')}
+            className="text-2xl font-black text-[var(--text-h)] tracking-tighter hover:text-[#6366f1] transition-colors"
+          >
             SK.
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.name}
-                to={item.path}
-                className="flex items-center space-x-2 text-[var(--text)] hover:text-[var(--accent)] transition-colors"
+                href={item.path}
+                onClick={(e) => handleScroll(e, item.path)}
+                className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium text-[var(--text)] hover:text-[var(--text-h)] hover:bg-[var(--accent)]/10 transition-all"
               >
                 {item.icon}
                 <span>{item.name}</span>
-              </Link>
+              </a>
             ))}
+            
+            <div className="w-px h-6 bg-[var(--border)] mx-4"></div>
+            
+            <button
+              onClick={toggleTheme}
+              className="p-2.5 rounded-full bg-[var(--border)] text-[var(--text-h)] hover:bg-[var(--accent)] hover:text-white transition-all mr-2"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
+            <a 
+              href="/CV.pdf" 
+              target="_blank" 
+              className="flex items-center space-x-2 px-6 py-2 rounded-full bg-[var(--text-h)] text-[var(--bg)] text-sm font-bold hover:bg-[#6366f1] hover:text-white transition-all shadow-md"
+            >
+              <FileText size={16} />
+              <span>Resume</span>
+            </a>
           </div>
 
-          {/* Mobile Nav Toggle */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-md text-[var(--text)] hover:bg-[var(--accent-bg)] transition-colors"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+          <div className="md:hidden flex items-center gap-2">
+             <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg text-[var(--text-h)] hover:bg-[var(--accent)]/10 transition-colors"
+              >
+                {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              </button>
+             <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-lg text-[var(--text-h)] hover:bg-[var(--accent)]/10 transition-colors"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
           </div>
         </nav>
 
         {/* Mobile Nav Menu */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-[var(--border)] bg-[var(--bg)]">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="flex items-center space-x-3 px-3 py-2 rounded-md text-[var(--text)] hover:bg-[var(--accent-bg)] hover:text-[var(--accent)] transition-all"
-                >
-                  {item.icon}
-                  <span className="font-medium">{item.name}</span>
-                </Link>
-              ))}
-            </div>
+          <div className="md:hidden border-t border-[var(--border)] bg-[var(--bg)] p-4 space-y-2">
+            {navItems.map((item) => (
+              <a
+                key={item.name}
+                href={item.path}
+                onClick={(e) => handleScroll(e, item.path)}
+                className="flex items-center space-x-4 p-4 rounded-xl text-lg font-bold text-[var(--text)] hover:bg-[var(--accent)]/10 hover:text-[var(--text-h)] transition-all"
+              >
+                {item.icon}
+                <span>{item.name}</span>
+              </a>
+            ))}
           </div>
         )}
       </header>
 
-      <main className="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+      <main className="flex-grow w-full">
         {children}
       </main>
 
-      <footer className="border-t border-[var(--border)] py-8">
-        <div className="max-w-6xl mx-auto px-4 text-center text-[var(--text)]">
-          <p>© {new Date().getFullYear()} Samet Kenar. All rights reserved.</p>
+      <footer className="border-t border-[var(--border)] py-12 mt-20 bg-[var(--card-bg)] backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="text-center md:text-left">
+             <p className="text-[var(--text-h)] font-bold text-xl mb-1">Samet Kenar</p>
+             <p className="text-[var(--text)] text-sm italic opacity-80 leading-relaxed max-w-xs">
+                Building AI-powered web and desktop applications with passion and precision.
+             </p>
+          </div>
+          <div className="flex space-x-6">
+             <a href="https://github.com/sametkenar" target="_blank" rel="noopener noreferrer" className="p-3 border border-[var(--border)] rounded-full text-[var(--text-h)] hover:border-[#6366f1] hover:text-[#6366f1] transition-all">
+               <GithubIcon size={22} />
+             </a>
+             <a href="https://linkedin.com/in/sametkenar" target="_blank" rel="noopener noreferrer" className="p-3 border border-[var(--border)] rounded-full text-[var(--text-h)] hover:border-[#6366f1] hover:text-[#6366f1] transition-all">
+               <LinkedinIcon size={22} />
+             </a>
+          </div>
+          <p className="text-[var(--text)] text-sm font-medium opacity-60">
+            © {new Date().getFullYear()} All Rights Reserved.
+          </p>
         </div>
       </footer>
     </div>
