@@ -2,6 +2,25 @@ import { motion } from 'framer-motion';
 import { skills } from '../data/skills';
 
 const Skills = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    },
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,9 +34,20 @@ const Skills = () => {
         </h1>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.15 }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+      >
         {skills.map((group) => (
-          <article key={group.title} className="bento-card p-10 space-y-6">
+          <motion.article
+            key={group.title}
+            variants={cardVariants}
+            whileHover={{ y: -6 }}
+            className="bento-card p-10 space-y-6"
+          >
             <h2 className="text-2xl font-bold text-[var(--text-h)]">
               {group.title}
             </h2>
@@ -35,14 +65,23 @@ const Skills = () => {
               </div>
             ) : group.badges ? (
               <div className="flex flex-wrap gap-3">
-                {group.badges.map((badge) => (
-                  <img
+                {group.badges.map((badge, idx) => (
+                  <motion.div
                     key={badge.label}
-                    src={badge.src}
-                    alt={badge.label}
-                    loading="lazy"
-                    className="h-8 md:h-9 w-auto"
-                  />
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.03, duration: 0.4 }}
+                    whileHover={{ y: -4, scale: 1.03 }}
+                    className="skill-badge-shell"
+                  >
+                    <img
+                      src={badge.src}
+                      alt={badge.label}
+                      loading="lazy"
+                      className="h-8 md:h-9 w-auto"
+                    />
+                  </motion.div>
                 ))}
               </div>
             ) : (
@@ -50,9 +89,9 @@ const Skills = () => {
                 {group.text}
               </p>
             )}
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </motion.div>
   );
 };

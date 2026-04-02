@@ -1,20 +1,33 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Globe, Mail, MapPin } from 'lucide-react';
+import { useEffect } from 'react';
 import profileImg from '../assets/sametkenar.png';
 import { profile } from '../data/profile';
 
 const Home = () => {
+  useEffect(() => {
+    const handleMouseMove = (event) => {
+      document.body.style.setProperty('--mouse-x', `${event.clientX}px`);
+      document.body.style.setProperty('--mouse-y', `${event.clientY}px`);
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+    visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
   };
 
   const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
+    hidden: { y: 32, opacity: 0, filter: 'blur(12px)' },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+      filter: 'blur(0px)',
+      transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
     },
   };
 
@@ -31,10 +44,24 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
           <motion.div
             variants={itemVariants}
-            className="md:col-span-8 p-12 bento-card flex flex-col justify-end space-y-6"
+            className="md:col-span-8 p-12 bento-card flex flex-col justify-end space-y-6 overflow-hidden"
           >
-            <div className="space-y-4">
-              <h1 className="text-5xl md:text-8xl text-gradient">{profile.name}</h1>
+            <div className="hero-orb" />
+            <div className="space-y-5 relative z-10">
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
+                className="text-5xl md:text-8xl text-gradient"
+              >
+                {profile.name}
+              </motion.h1>
+              <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 0.85, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
+                className="hero-divider"
+              />
               <p className="text-lg md:text-xl text-[var(--text)] font-medium leading-relaxed max-w-4xl">
                 {profile.bio}
               </p>
@@ -45,6 +72,7 @@ const Home = () => {
             variants={itemVariants}
             className="md:col-span-4 bento-card relative group overflow-hidden"
           >
+            <div className="absolute inset-0 hero-image-glow" />
             <img
               src={profileImg}
               alt="Samet Kenar"
@@ -87,16 +115,17 @@ const Home = () => {
             </h2>
             <div className="space-y-4">
               {profile.profiles.map((item) => (
-                <a
+                <motion.a
                   key={item.label}
                   href={item.url}
                   target="_blank"
                   rel="noreferrer"
+                  whileHover={{ x: 6 }}
                   className="flex items-center justify-between gap-4 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
                 >
                   <span className="font-semibold">{item.label}</span>
                   <ArrowRight size={16} className="text-[var(--accent)]" />
-                </a>
+                </motion.a>
               ))}
             </div>
           </motion.div>

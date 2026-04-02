@@ -16,16 +16,18 @@ const Experience = () => {
         </h1>
       </section>
 
-      <div className="space-y-6">
+      <div className="relative space-y-6 md:space-y-8">
+        <div className="experience-rail hidden md:block" />
         {experience.map((item, idx) => (
           <motion.article
             key={`${item.title}-${item.venue}`}
-            initial={{ y: 20, opacity: 0 }}
+            initial={{ y: 24, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.08 }}
-            className="bento-card p-10 space-y-5"
+            transition={{ delay: idx * 0.08, duration: 0.55 }}
+            className="experience-card md:ml-10 bento-card p-10 space-y-5"
           >
+            <div className="experience-dot hidden md:block" />
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
               <div className="space-y-2">
                 <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-h)] leading-tight">
@@ -40,7 +42,7 @@ const Experience = () => {
                 )}
               </div>
 
-              <p className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[var(--text)] opacity-70">
+              <p className="inline-flex items-center gap-2 self-start px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-sm font-black uppercase tracking-widest text-[var(--text)] opacity-90">
                 <Calendar size={14} />
                 {item.date}
               </p>

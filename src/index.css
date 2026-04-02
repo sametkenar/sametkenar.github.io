@@ -122,3 +122,100 @@ h1, h2, h3, h4 {
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
+
+.hero-orb {
+  position: absolute;
+  width: 18rem;
+  height: 18rem;
+  right: -3rem;
+  top: -5rem;
+  border-radius: 9999px;
+  background:
+    radial-gradient(circle, rgba(99, 102, 241, 0.24) 0%, rgba(99, 102, 241, 0) 72%);
+  filter: blur(6px);
+  animation: pulse-orb 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hero-image-glow {
+  background:
+    radial-gradient(circle at 50% 20%, rgba(99, 102, 241, 0.2), transparent 58%);
+  opacity: 0.9;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.hero-divider {
+  width: min(11rem, 35%);
+  height: 2px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform-origin: left center;
+}
+
+.skill-badge-shell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.01)
+  );
+  box-shadow: 0 10px 24px -18px rgba(99, 102, 241, 0.65);
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease;
+}
+
+.skill-badge-shell:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  background: linear-gradient(
+    180deg,
+    rgba(99, 102, 241, 0.12),
+    rgba(255, 255, 255, 0.02)
+  );
+  box-shadow: 0 18px 34px -20px rgba(99, 102, 241, 0.75);
+}
+
+.experience-rail {
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    rgba(99, 102, 241, 0.75),
+    rgba(99, 102, 241, 0.12) 40%,
+    rgba(255, 255, 255, 0.06)
+  );
+}
+
+.experience-card {
+  overflow: visible;
+}
+
+.experience-dot {
+  position: absolute;
+  left: -2.15rem;
+  top: 2.5rem;
+  width: 0.95rem;
+  height: 0.95rem;
+  border-radius: 9999px;
+  background: var(--accent);
+  border: 4px solid var(--bg);
+  box-shadow: 0 0 0 6px rgba(99, 102, 241, 0.12);
+}
+
+@keyframes pulse-orb {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.08) translateY(12px);
+    opacity: 1;
+  }
+}
