@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
+import { Calendar } from 'lucide-react';
 import { education } from '../data/education';
-import { GraduationCap, MapPin, Calendar } from 'lucide-react';
 
 const Education = () => {
   return (
@@ -11,39 +11,29 @@ const Education = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-5xl md:text-7xl font-black text-white tracking-tighter mb-6">Education.</h1>
-        <p className="text-xl text-[var(--text)] max-w-2xl font-medium">
-          The foundation of my analytical thinking and statistical approach.
-        </p>
+        <h1 className="text-5xl md:text-7xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+          Education.
+        </h1>
       </section>
 
       <div className="space-y-6">
-        {education.map((item, idx) => (
-          <div key={idx} className="bento-card p-10 flex flex-col md:flex-row justify-between gap-8 group">
-            <div className="space-y-4">
-               <div className="flex items-center gap-4 text-[#6366f1]">
-                  <GraduationCap size={32} />
-                  <span className="text-sm font-black uppercase tracking-[0.3em] opacity-60">Degree</span>
-               </div>
-               <h3 className="text-3xl font-bold text-white group-hover:text-[#6366f1] transition-colors leading-tight">
-                  {item.title}
-               </h3>
-               <p className="text-xl font-bold text-slate-300 italic">{item.venue}</p>
-               <p className="text-[#a1a1aa] leading-relaxed max-w-xl font-medium">
-                  {item.description}
-               </p>
+        {education.map((item) => (
+          <article
+            key={`${item.title}-${item.venue}`}
+            className="bento-card p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+          >
+            <div className="space-y-2">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-h)] leading-tight">
+                {item.title}
+              </h2>
+              <p className="text-lg font-semibold text-[var(--text)]">{item.venue}</p>
             </div>
-            <div className="flex flex-col items-start md:items-end text-sm font-black text-slate-500 space-y-2 uppercase tracking-widest pt-4 md:pt-0">
-               <span className="flex items-center gap-2">
-                  <Calendar size={14} />
-                  {item.date}
-               </span>
-               <span className="flex items-center gap-2">
-                  <MapPin size={14} />
-                  {item.location}
-               </span>
-            </div>
-          </div>
+
+            <p className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[var(--text)] opacity-70">
+              <Calendar size={14} />
+              {item.date}
+            </p>
+          </article>
         ))}
       </div>
     </motion.div>

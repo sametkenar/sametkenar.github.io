@@ -1,8 +1,10 @@
 import Layout from './layouts/Layout';
 import Home from './pages/Home';
-import Projects from './pages/Projects';
-import Experience from './pages/Experience';
 import Education from './pages/Education';
+import Experience from './pages/Experience';
+import Projects from './pages/Projects';
+import Skills from './pages/Skills';
+import Leadership from './pages/Leadership';
 
 function App() {
   return (
@@ -12,16 +14,24 @@ function App() {
           <Home />
         </section>
         
-        <section id="projects">
-          <Projects />
-        </section>
-
         <section id="education">
           <Education />
         </section>
         
         <section id="experience">
           <Experience />
+        </section>
+
+        <section id="projects">
+          <Projects />
+        </section>
+
+        <section id="skills">
+          <Skills />
+        </section>
+
+        <section id="leadership">
+          <Leadership />
         </section>
       </div>
     </Layout>
