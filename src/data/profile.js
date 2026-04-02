@@ -1,11 +1,15 @@
 export const profile = {
   name: "Samet Kenar",
-  role: "Data Scientist - Statistician",
+  role: "IT Business Analyst | Statistics Graduate | Building AI-Powered Applications",
   location: "Ankara/Türkiye",
   website: "https://sametkenar.github.io",
   email: "samet.kenarr@gmail.com",
-  bio: "Data Scientist - Statistician passionate about turning complex business datasets into clear, actionable insights. With a B.Sc. in Statistics from METU and hands on experience as a Data Science Analyst at the Presidency of Türkiye Human Resources Office, I couple strong quantitative fundamentals with real world decision making contexts. I design end to end solutions, data pipelines, predictive models, dashboards using Python, R, SQL and modern machine learning frameworks, translating technical findings into stories that guide policy, streamline operations and drive business value. Curious, collaborative and impact driven, I thrive on bridging numbers and people to deliver data informed strategies.",
+  bio: "I am an IT Business Analyst with a background in Statistics and Data Science. My work focuses on building AI-powered applications and internal systems that solve real business problems. I develop both web and desktop solutions and turn business needs into practical technical products. I currently work mainly with ASP.NET Core, C#, Vite, Python, R, and R Shiny. My background also includes machine learning, statistical modeling, automation, data analysis, and analytical product development.",
   profiles: [
+    {
+      label: "LinkedIn",
+      url: "https://www.linkedin.com/in/sametkenar/",
+    },
     {
       label: "GitHub",
       url: "https://github.com/sametkenar",

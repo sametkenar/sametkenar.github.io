@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Calendar } from 'lucide-react';
+import { Calendar, MapPin } from 'lucide-react';
 import { experience } from '../data/experience';
 
 const Experience = () => {
@@ -32,6 +32,12 @@ const Experience = () => {
                   {item.title}
                 </h2>
                 <p className="text-lg font-semibold text-[var(--text)]">{item.venue}</p>
+                {item.location && (
+                  <p className="flex items-center gap-2 text-sm font-medium text-[var(--text)] opacity-80">
+                    <MapPin size={14} />
+                    {item.location}
+                  </p>
+                )}
               </div>
 
               <p className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[var(--text)] opacity-70">

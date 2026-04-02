@@ -34,9 +34,6 @@ const Home = () => {
             className="md:col-span-8 p-12 bento-card flex flex-col justify-end space-y-6"
           >
             <div className="space-y-4">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-[rgba(99,102,241,0.1)] text-[#6366f1] text-[10px] font-black uppercase tracking-[0.3em]">
-                {profile.role}
-              </span>
               <h1 className="text-5xl md:text-8xl text-gradient">{profile.name}</h1>
               <p className="text-lg md:text-xl text-[var(--text)] font-medium leading-relaxed max-w-4xl">
                 {profile.bio}

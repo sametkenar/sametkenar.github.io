@@ -181,6 +181,10 @@ const Layout = ({ children }) => {
           <p className="text-[var(--text)] text-sm font-medium opacity-60">
             {profile.location}
           </p>
+
+          <p className="text-[var(--text)] text-sm font-medium opacity-60">
+            © {new Date().getFullYear()} Samet Kenar. Licensed under the MIT License.
+          </p>
         </div>
       </footer>
     </div>

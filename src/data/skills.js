@@ -5,6 +5,6 @@ export const skills = [
   },
   {
     title: "Technical Skills",
-    text: "Python, scikit-learn, TensorFlow, Keras, Selenium, Pytorch, R, RShiny, SQL, Minitab, Docker, Nginx, Ubuntu Server, HTML, CSS, Statistical Modelling, Machine Learning Applications, Developing Python and R Applications, Web Scraping,  Data Visualization, Business Analysis, Git, GitHub, Power BI, MS Access, Microsoft Office",
+    text: "ASP.NET Core, C#, .NET, Python, R, R Shiny, Django, Streamlit, Vite, JavaScript, HTML5, CSS3, Pandas, NumPy, SciPy, scikit-learn, TensorFlow, PyTorch, Keras, Plotly, Matplotlib, Power BI, Minitab, Selenium, Docker, Nginx, Azure, Ubuntu Server, Git, GitHub, PostgreSQL, Microsoft SQL Server, MySQL, MS Access",
   },
 ];
