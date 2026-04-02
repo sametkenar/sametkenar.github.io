@@ -2,7 +2,7 @@ export const experience = [
   {
     title: "IT Business Analyst",
     venue: "TPF INGENIERÍA TURKIYE",
-    location: "Ankara, Turkey",
+    location: "Ankara, Türkiye",
     date: "November 2025 - Present",
   },
   {
@@ -20,7 +20,7 @@ export const experience = [
   {
     title: "Corporate Banking Intern",
     venue: "Denizbank Capital Regional Directorate",
-    location: "Istanbul, Türkiye",
+    location: "Ankara, Türkiye",
     date: "2023 August - a month",
   },
   {

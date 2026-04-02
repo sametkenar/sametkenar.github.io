@@ -33,6 +33,18 @@ const Skills = () => {
                   </p>
                 ))}
               </div>
+            ) : group.badges ? (
+              <div className="flex flex-wrap gap-3">
+                {group.badges.map((badge) => (
+                  <img
+                    key={badge.label}
+                    src={badge.src}
+                    alt={badge.label}
+                    loading="lazy"
+                    className="h-8 md:h-9 w-auto"
+                  />
+                ))}
+              </div>
             ) : (
               <p className="text-base leading-relaxed font-medium text-[var(--text)]">
                 {group.text}
