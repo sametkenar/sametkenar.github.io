@@ -44,6 +44,10 @@ export const skills = [
     title: "Frontend",
     badges: [
       {
+        label: "React",
+        src: "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
+      },
+      {
         label: "Vite",
         src: "https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white",
       },
