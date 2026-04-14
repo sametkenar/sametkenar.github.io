@@ -41,10 +41,11 @@ const Home = () => {
         animate="visible"
         className="space-y-6 relative z-10"
       >
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(160px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(120px,auto)]">
+          {/* Main Hero Section */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-8 p-6 bento-card flex flex-col justify-end space-y-4 overflow-hidden"
+            className="md:col-span-8 p-6 bento-card flex flex-col justify-center space-y-4 overflow-hidden"
           >
             <div className="hero-orb" />
             <div className="space-y-4 relative z-10">
@@ -68,9 +69,10 @@ const Home = () => {
             </div>
           </motion.div>
 
+          {/* Profile Image - Spans 3 rows to match bio, contact, profiles */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-4 bento-card relative group overflow-hidden"
+            className="md:col-span-4 md:row-span-3 bento-card relative group overflow-hidden"
           >
             <div className="absolute inset-0 hero-image-glow" />
             <img
@@ -81,39 +83,41 @@ const Home = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60"></div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="md:col-span-4 p-6 bento-card space-y-4">
+          {/* Contact Section - Full width of left column (8) */}
+          <motion.div variants={itemVariants} className="md:col-span-8 p-6 bento-card space-y-4">
             <h2 className="text-[11px] font-black tracking-widest uppercase text-[var(--text)] opacity-50">
               Contact
             </h2>
-            <div className="space-y-3">
+            <div className="flex flex-wrap gap-x-8 gap-y-4">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-start gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
+                className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
               >
-                <Mail size={16} className="mt-1 text-[var(--accent)]" />
+                <Mail size={16} className="text-[var(--accent)]" />
                 <span className="text-sm font-medium leading-relaxed">{profile.email}</span>
               </a>
               <a
                 href={profile.website}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
+                className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
               >
-                <Globe size={16} className="mt-1 text-[var(--accent)]" />
+                <Globe size={16} className="text-[var(--accent)]" />
                 <span className="text-sm font-medium leading-relaxed">{profile.website}</span>
               </a>
-              <div className="flex items-start gap-3 text-[var(--text)]">
-                <MapPin size={16} className="mt-1 text-[var(--accent)]" />
+              <div className="flex items-center gap-3 text-[var(--text)]">
+                <MapPin size={16} className="text-[var(--accent)]" />
                 <span className="text-sm font-medium leading-relaxed">{profile.location}</span>
               </div>
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="md:col-span-4 p-6 bento-card space-y-4">
+          {/* Profiles Section - Full width of left column (8) */}
+          <motion.div variants={itemVariants} className="md:col-span-8 p-6 bento-card space-y-4">
             <h2 className="text-[11px] font-black tracking-widest uppercase text-[var(--text)] opacity-50">
               Profiles
             </h2>
-            <div className="space-y-3">
+            <div className="flex flex-wrap gap-6">
               {profile.profiles.map((item) => (
                 <motion.a
                   key={item.label}
@@ -121,7 +125,7 @@ const Home = () => {
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ x: 4 }}
-                  className="flex items-center justify-between gap-4 text-[var(--text)] hover:text-[var(--text-h)] transition-colors text-sm"
+                  className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors text-sm"
                 >
                   <span className="font-semibold">{item.label}</span>
                   <ArrowRight size={14} className="text-[var(--accent)]" />
@@ -129,24 +133,6 @@ const Home = () => {
               ))}
             </div>
           </motion.div>
-
-          <motion.a
-            variants={itemVariants}
-            href="#education"
-            onClick={(event) => {
-              event.preventDefault();
-              document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="md:col-span-4 p-6 bento-card flex items-center justify-between gap-4 text-[var(--text-h)] hover:border-[var(--accent)] transition-colors"
-          >
-            <div className="space-y-1.5">
-              <p className="text-[11px] font-black tracking-widest uppercase text-[var(--text)] opacity-50">
-                Curriculum Vitae
-              </p>
-              <p className="text-xl font-bold">Education</p>
-            </div>
-            <ArrowRight size={18} className="text-[var(--accent)]" />
-          </motion.a>
         </div>
       </motion.div>
     </>
