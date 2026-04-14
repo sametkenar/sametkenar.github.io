@@ -78,7 +78,7 @@ const Layout = ({ children }) => {
             onClick={(event) => handleScroll(event, '#home')}
             className="text-xl font-black text-[var(--text-h)] tracking-tighter hover:text-[#6366f1] transition-all duration-300"
           >
-            SAMET KENAR
+            SK.
           </a>
 
           <div className="hidden md:flex items-center space-x-1">

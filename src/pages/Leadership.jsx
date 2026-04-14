@@ -11,38 +11,38 @@ const Leadership = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-2xl md:text-3xl font-black text-[var(--text-h)] tracking-tighter mb-4">
+        <h1 className="text-3xl md:text-4xl font-black text-[var(--text-h)] tracking-tighter mb-5">
           Service and leadership.
         </h1>
       </section>
 
-      <div className="space-y-3">
+      <div className="space-y-4">
         {leadership.map((item) => (
           <article
             key={`${item.title}-${item.venue}`}
-            className="bento-card p-5 space-y-3"
+            className="bento-card p-6 space-y-4"
           >
-            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-              <div className="space-y-0.5">
-                <h2 className="text-lg font-bold text-[var(--text-h)]">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+              <div className="space-y-1">
+                <h2 className="text-xl font-bold text-[var(--text-h)]">
                   {item.title}
                 </h2>
-                <p className="text-sm font-semibold text-[var(--text)]">
+                <p className="text-base font-semibold text-[var(--text)]">
                   {item.venue}
                 </p>
               </div>
 
-              <p className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-[var(--text)] opacity-70">
-                <Calendar size={12} />
+              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--text)] opacity-70">
+                <Calendar size={14} />
                 {item.date}
               </p>
             </div>
 
-            <div className="space-y-1.5">
+            <div className="space-y-2">
               {item.items.map((detail) => (
                 <p
                   key={detail}
-                  className="text-xs md:text-sm leading-relaxed font-medium text-[var(--text)]"
+                  className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]"
                 >
                   {detail}
                 </p>

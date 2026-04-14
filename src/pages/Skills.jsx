@@ -29,7 +29,7 @@ const Skills = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-2xl md:text-3xl font-black text-[var(--text-h)] tracking-tighter mb-4">
+        <h1 className="text-3xl md:text-4xl font-black text-[var(--text-h)] tracking-tighter mb-5">
           Skills.
         </h1>
       </section>
@@ -39,25 +39,25 @@ const Skills = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-3"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
         {skills.map((group) => (
           <motion.article
             key={group.title}
             variants={cardVariants}
-            whileHover={{ y: -4 }}
-            className="bento-card p-5 space-y-3"
+            whileHover={{ y: -6 }}
+            className="bento-card p-6 space-y-4"
           >
-            <h2 className="text-lg font-bold text-[var(--text-h)]">
+            <h2 className="text-xl font-bold text-[var(--text-h)]">
               {group.title}
             </h2>
 
             {group.items ? (
-              <div className="space-y-1.5">
+              <div className="space-y-2">
                 {group.items.map((item) => (
                   <p
                     key={item}
-                    className="text-xs md:text-sm leading-relaxed font-medium text-[var(--text)]"
+                    className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]"
                   >
                     {item}
                   </p>
@@ -72,20 +72,20 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.03, duration: 0.4 }}
-                    whileHover={{ y: -2, scale: 1.02 }}
-                    className="skill-badge-shell !p-1 !rounded-lg"
+                    whileHover={{ y: -4, scale: 1.03 }}
+                    className="skill-badge-shell"
                   >
                     <img
                       src={badge.src}
                       alt={badge.label}
                       loading="lazy"
-                      className="h-6 md:h-7 w-auto"
+                      className="h-7 md:h-8 w-auto"
                     />
                   </motion.div>
                 ))}
               </div>
             ) : (
-              <p className="text-xs md:text-sm leading-relaxed font-medium text-[var(--text)]">
+              <p className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]">
                 {group.text}
               </p>
             )}
