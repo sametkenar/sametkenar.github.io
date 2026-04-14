@@ -106,6 +106,7 @@ const Layout = ({ children }) => {
 
             <a
               href={resumePdf}
+              download="Samet_Kenar_CV.pdf"
               target="_blank"
               rel="noreferrer"
               className="flex items-center space-x-2 px-6 py-2 rounded-full bg-[var(--text-h)] text-[var(--bg)] text-sm font-bold hover:bg-[#6366f1] hover:text-white transition-all shadow-md"
