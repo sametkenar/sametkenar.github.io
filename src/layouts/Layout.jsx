@@ -105,7 +105,7 @@ const Layout = ({ children }) => {
             </button>
 
             <a
-              href={resumePdf}
+              href="/Samet_Kenar_CV.pdf"
               download="Samet_Kenar_CV.pdf"
               target="_blank"
               rel="noreferrer"
