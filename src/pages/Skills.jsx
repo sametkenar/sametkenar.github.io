@@ -29,7 +29,7 @@ const Skills = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-4xl md:text-5xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+        <h1 className="text-2xl md:text-3xl font-black text-[var(--text-h)] tracking-tighter mb-4">
           Skills.
         </h1>
       </section>
@@ -39,25 +39,25 @@ const Skills = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4"
+        className="grid grid-cols-1 md:grid-cols-2 gap-3"
       >
         {skills.map((group) => (
           <motion.article
             key={group.title}
             variants={cardVariants}
-            whileHover={{ y: -6 }}
-            className="bento-card p-8 space-y-4"
+            whileHover={{ y: -4 }}
+            className="bento-card p-5 space-y-3"
           >
-            <h2 className="text-xl font-bold text-[var(--text-h)]">
+            <h2 className="text-lg font-bold text-[var(--text-h)]">
               {group.title}
             </h2>
 
             {group.items ? (
-              <div className="space-y-2">
+              <div className="space-y-1.5">
                 {group.items.map((item) => (
                   <p
                     key={item}
-                    className="text-base leading-relaxed font-medium text-[var(--text)]"
+                    className="text-xs md:text-sm leading-relaxed font-medium text-[var(--text)]"
                   >
                     {item}
                   </p>
@@ -72,20 +72,20 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.03, duration: 0.4 }}
-                    whileHover={{ y: -4, scale: 1.03 }}
-                    className="skill-badge-shell"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    className="skill-badge-shell !p-1 !rounded-lg"
                   >
                     <img
                       src={badge.src}
                       alt={badge.label}
                       loading="lazy"
-                      className="h-7 md:h-8 w-auto"
+                      className="h-6 md:h-7 w-auto"
                     />
                   </motion.div>
                 ))}
               </div>
             ) : (
-              <p className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]">
+              <p className="text-xs md:text-sm leading-relaxed font-medium text-[var(--text)]">
                 {group.text}
               </p>
             )}

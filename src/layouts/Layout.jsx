@@ -76,17 +76,9 @@ const Layout = ({ children }) => {
           <a
             href="#home"
             onClick={(event) => handleScroll(event, '#home')}
-            className="flex items-center gap-2 group"
+            className="text-xl font-black text-[var(--text-h)] tracking-tighter hover:text-[#6366f1] transition-all duration-300"
           >
-            <div className="w-8 h-8 bg-[#6366f1] rounded-lg flex items-center justify-center shadow-md shadow-indigo-500/10 group-hover:scale-105 transition-all duration-300">
-              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
-                <path d="M9 11C8 11 7.5 11.5 7.5 12.5C7.5 13.5 8 14 9 14H12C13 14 13.5 14.5 13.5 15.5C13.5 16.5 13 17 12 17H9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                <path d="M19 10V18M19 14L23.5 10M19 14L23.5 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <span className="text-xl font-black text-[var(--text-h)] tracking-tighter group-hover:text-[#6366f1] transition-colors">
-              SK.
-            </span>
+            SAMET KENAR
           </a>
 
           <div className="hidden md:flex items-center space-x-1">
