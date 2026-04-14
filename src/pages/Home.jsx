@@ -44,15 +44,15 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
           <motion.div
             variants={itemVariants}
-            className="md:col-span-8 p-8 bento-card flex flex-col justify-end space-y-4 overflow-hidden"
+            className="md:col-span-8 p-7 bento-card flex flex-col justify-end space-y-3 overflow-hidden"
           >
             <div className="hero-orb" />
-            <div className="space-y-4 relative z-10">
+            <div className="space-y-3 relative z-10">
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
-                className="text-4xl md:text-6xl text-gradient"
+                className="text-4xl md:text-5xl text-gradient"
               >
                 {profile.name}
               </motion.h1>
@@ -62,7 +62,7 @@ const Home = () => {
                 transition={{ duration: 0.85, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
                 className="hero-divider"
               />
-              <p className="text-base md:text-lg text-[var(--text)] font-medium leading-relaxed max-w-3xl">
+              <p className="text-sm md:text-base text-[var(--text)] font-medium leading-relaxed max-w-2xl">
                 {profile.bio}
               </p>
             </div>
@@ -76,44 +76,44 @@ const Home = () => {
             <img
               src={profileImg}
               alt="Samet Kenar"
-              className="w-full h-full object-cover scale-110 group-hover:scale-100 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+              className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 grayscale group-hover:grayscale-0"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60"></div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="md:col-span-4 p-8 bento-card space-y-5">
+          <motion.div variants={itemVariants} className="md:col-span-4 p-7 bento-card space-y-4">
             <h2 className="text-xs font-black tracking-widest uppercase text-[var(--text)] opacity-50">
               Contact
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3">
               <a
                 href={`mailto:${profile.email}`}
-                className="flex items-start gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
+                className="flex items-start gap-2.5 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
               >
-                <Mail size={18} className="mt-1 text-[var(--accent)]" />
-                <span className="font-medium leading-relaxed">{profile.email}</span>
+                <Mail size={16} className="mt-1 text-[var(--accent)]" />
+                <span className="text-sm font-medium leading-relaxed">{profile.email}</span>
               </a>
               <a
                 href={profile.website}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-start gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
+                className="flex items-start gap-2.5 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
               >
-                <Globe size={18} className="mt-1 text-[var(--accent)]" />
-                <span className="font-medium leading-relaxed">{profile.website}</span>
+                <Globe size={16} className="mt-1 text-[var(--accent)]" />
+                <span className="text-sm font-medium leading-relaxed">{profile.website}</span>
               </a>
-              <div className="flex items-start gap-3 text-[var(--text)]">
-                <MapPin size={18} className="mt-1 text-[var(--accent)]" />
-                <span className="font-medium leading-relaxed">{profile.location}</span>
+              <div className="flex items-start gap-2.5 text-[var(--text)]">
+                <MapPin size={16} className="mt-1 text-[var(--accent)]" />
+                <span className="text-sm font-medium leading-relaxed">{profile.location}</span>
               </div>
             </div>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="md:col-span-4 p-8 bento-card space-y-5">
+          <motion.div variants={itemVariants} className="md:col-span-4 p-7 bento-card space-y-4">
             <h2 className="text-xs font-black tracking-widest uppercase text-[var(--text)] opacity-50">
               Profiles
             </h2>
-            <div className="space-y-4">
+            <div className="space-y-3">
               {profile.profiles.map((item) => (
                 <motion.a
                   key={item.label}
@@ -121,10 +121,10 @@ const Home = () => {
                   target="_blank"
                   rel="noreferrer"
                   whileHover={{ x: 6 }}
-                  className="flex items-center justify-between gap-4 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
+                  className="flex items-center justify-between gap-4 text-[var(--text)] hover:text-[var(--text-h)] transition-colors text-sm"
                 >
                   <span className="font-semibold">{item.label}</span>
-                  <ArrowRight size={16} className="text-[var(--accent)]" />
+                  <ArrowRight size={14} className="text-[var(--accent)]" />
                 </motion.a>
               ))}
             </div>
@@ -137,15 +137,15 @@ const Home = () => {
               event.preventDefault();
               document.querySelector('#education')?.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="md:col-span-4 p-8 bento-card flex items-center justify-between gap-4 text-[var(--text-h)] hover:border-[var(--accent)] transition-colors"
+            className="md:col-span-4 p-7 bento-card flex items-center justify-between gap-4 text-[var(--text-h)] hover:border-[var(--accent)] transition-colors"
           >
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <p className="text-xs font-black tracking-widest uppercase text-[var(--text)] opacity-50">
                 Curriculum Vitae
               </p>
-              <p className="text-2xl font-bold">Education</p>
+              <p className="text-xl font-bold">Education</p>
             </div>
-            <ArrowRight className="text-[var(--accent)]" />
+            <ArrowRight size={20} className="text-[var(--accent)]" />
           </motion.a>
         </div>
       </motion.div>

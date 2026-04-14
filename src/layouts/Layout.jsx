@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import resumePdf from '../assets/Samet_Kenar_SoftwareDeveloper.pdf';
+import resumePdf from '../assets/Samet_Kenar_CV.pdf';
 import { profile } from '../data/profile';
 
 const GithubIcon = ({ size = 20 }) => (
@@ -41,12 +41,12 @@ const Layout = ({ children }) => {
   }, [theme]);
 
   const navItems = [
-    { name: 'Home', path: '#home', icon: <Home size={18} /> },
-    { name: 'Education', path: '#education', icon: <GraduationCap size={18} /> },
-    { name: 'Work', path: '#experience', icon: <Briefcase size={18} /> },
-    { name: 'Projects', path: '#projects', icon: <FolderOpen size={18} /> },
-    { name: 'Skills', path: '#skills', icon: <Sparkles size={18} /> },
-    { name: 'Service', path: '#leadership', icon: <UserRound size={18} /> },
+    { name: 'Home', path: '#home', icon: <Home size={16} /> },
+    { name: 'Education', path: '#education', icon: <GraduationCap size={16} /> },
+    { name: 'Work', path: '#experience', icon: <Briefcase size={16} /> },
+    { name: 'Projects', path: '#projects', icon: <FolderOpen size={16} /> },
+    { name: 'Skills', path: '#skills', icon: <Sparkles size={16} /> },
+    { name: 'Service', path: '#leadership', icon: <UserRound size={16} /> },
   ];
 
   const handleScroll = (event, targetId) => {
@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
       return;
     }
 
-    const offset = 100;
+    const offset = 80;
     const bodyRect = document.body.getBoundingClientRect().top;
     const elementRect = element.getBoundingClientRect().top;
     const elementPosition = elementRect - bodyRect;
@@ -72,19 +72,19 @@ const Layout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 bg-[var(--bg)]/80 backdrop-blur-xl border-b border-[var(--border)]">
-        <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between gap-4">
+        <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
           <a
             href="#home"
             onClick={(event) => handleScroll(event, '#home')}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2.5 group"
           >
-            <div className="w-10 h-10 bg-[#6366f1] rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-              <svg width="22" height="22" viewBox="0 0 32 32" fill="none" className="drop-shadow-sm">
-                <path d="M10 10C8.3 10 7 11.3 7 13C7 14.7 8.3 16 10 16H12C13.7 16 15 17.3 15 19C15 20.7 13.7 22 12 22H10" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                <path d="M20 10V22M20 16L25 10M20 16L25 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+            <div className="w-9 h-9 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-105 group-hover:rotate-2 transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" className="drop-shadow-sm">
+                <path d="M10.5 11C9.4 11 8.5 11.9 8.5 13C8.5 14.1 9.4 15 10.5 15H12.5C13.6 15 14.5 15.9 14.5 17C14.5 18.1 13.6 19 12.5 19H10.5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
+                <path d="M20 11V19M20 15L24 11M20 15L24 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
-            <span className="text-2xl font-black text-[var(--text-h)] tracking-tighter group-hover:text-[#6366f1] transition-colors">
+            <span className="text-xl font-black text-[var(--text-h)] tracking-tighter group-hover:text-[#6366f1] transition-colors">
               SK.
             </span>
           </a>
