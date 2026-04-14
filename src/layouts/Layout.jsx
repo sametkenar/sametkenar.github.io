@@ -76,12 +76,12 @@ const Layout = ({ children }) => {
           <a
             href="#home"
             onClick={(event) => handleScroll(event, '#home')}
-            className="flex items-center gap-2.5 group"
+            className="flex items-center gap-2 group"
           >
-            <div className="w-9 h-9 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-105 group-hover:rotate-2 transition-all duration-300">
-              <svg width="20" height="20" viewBox="0 0 32 32" fill="none" className="drop-shadow-sm">
-                <path d="M10.5 11C9.4 11 8.5 11.9 8.5 13C8.5 14.1 9.4 15 10.5 15H12.5C13.6 15 14.5 15.9 14.5 17C14.5 18.1 13.6 19 12.5 19H10.5" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M20 11V19M20 15L24 11M20 15L24 19" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <div className="w-8 h-8 bg-[#6366f1] rounded-lg flex items-center justify-center shadow-md shadow-indigo-500/10 group-hover:scale-105 transition-all duration-300">
+              <svg width="18" height="18" viewBox="0 0 32 32" fill="none">
+                <path d="M9 11C8 11 7.5 11.5 7.5 12.5C7.5 13.5 8 14 9 14H12C13 14 13.5 14.5 13.5 15.5C13.5 16.5 13 17 12 17H9.5" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <path d="M19 10V18M19 14L23.5 10M19 14L23.5 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <span className="text-xl font-black text-[var(--text-h)] tracking-tighter group-hover:text-[#6366f1] transition-colors">
