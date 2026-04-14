@@ -11,12 +11,12 @@ const Experience = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-5xl md:text-7xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+        <h1 className="text-4xl md:text-5xl font-black text-[var(--text-h)] tracking-tighter mb-6">
           Work Experience.
         </h1>
       </section>
 
-      <div className="relative space-y-6 md:space-y-8">
+      <div className="relative space-y-4 md:space-y-6">
         <div className="experience-rail hidden md:block" />
         {experience.map((item, idx) => (
           <motion.article
@@ -25,15 +25,15 @@ const Experience = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: idx * 0.08, duration: 0.55 }}
-            className="experience-card md:ml-10 bento-card p-10 space-y-5"
+            className="experience-card md:ml-10 bento-card p-8 space-y-4"
           >
             <div className="experience-dot hidden md:block" />
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-              <div className="space-y-2">
-                <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-h)] leading-tight">
+              <div className="space-y-1">
+                <h2 className="text-xl md:text-2xl font-bold text-[var(--text-h)] leading-tight">
                   {item.title}
                 </h2>
-                <p className="text-lg font-semibold text-[var(--text)]">{item.venue}</p>
+                <p className="text-base font-semibold text-[var(--text)]">{item.venue}</p>
                 {item.location && (
                   <p className="flex items-center gap-2 text-sm font-medium text-[var(--text)] opacity-80">
                     <MapPin size={14} />

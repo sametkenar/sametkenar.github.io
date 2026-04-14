@@ -44,15 +44,15 @@ const Home = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(180px,auto)]">
           <motion.div
             variants={itemVariants}
-            className="md:col-span-8 p-12 bento-card flex flex-col justify-end space-y-6 overflow-hidden"
+            className="md:col-span-8 p-8 bento-card flex flex-col justify-end space-y-4 overflow-hidden"
           >
             <div className="hero-orb" />
-            <div className="space-y-5 relative z-10">
+            <div className="space-y-4 relative z-10">
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
-                className="text-5xl md:text-8xl text-gradient"
+                className="text-4xl md:text-6xl text-gradient"
               >
                 {profile.name}
               </motion.h1>
@@ -62,7 +62,7 @@ const Home = () => {
                 transition={{ duration: 0.85, delay: 0.28, ease: [0.22, 1, 0.36, 1] }}
                 className="hero-divider"
               />
-              <p className="text-lg md:text-xl text-[var(--text)] font-medium leading-relaxed max-w-4xl">
+              <p className="text-base md:text-lg text-[var(--text)] font-medium leading-relaxed max-w-3xl">
                 {profile.bio}
               </p>
             </div>

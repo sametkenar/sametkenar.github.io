@@ -12,7 +12,7 @@ import {
   X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import resumePdf from '../assets/Samet_Kenar_CV.pdf';
+import resumePdf from '../assets/Samet_Kenar_SoftwareDeveloper.pdf';
 import { profile } from '../data/profile';
 
 const GithubIcon = ({ size = 20 }) => (
@@ -76,9 +76,17 @@ const Layout = ({ children }) => {
           <a
             href="#home"
             onClick={(event) => handleScroll(event, '#home')}
-            className="text-2xl font-black text-[var(--text-h)] tracking-tighter hover:text-[#6366f1] transition-colors"
+            className="flex items-center gap-3 group"
           >
-            SK.
+            <div className="w-10 h-10 bg-[#6366f1] rounded-xl flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
+              <svg width="22" height="22" viewBox="0 0 32 32" fill="none" className="drop-shadow-sm">
+                <path d="M10 10C8.3 10 7 11.3 7 13C7 14.7 8.3 16 10 16H12C13.7 16 15 17.3 15 19C15 20.7 13.7 22 12 22H10" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
+                <path d="M20 10V22M20 16L25 10M20 16L25 22" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <span className="text-2xl font-black text-[var(--text-h)] tracking-tighter group-hover:text-[#6366f1] transition-colors">
+              SK.
+            </span>
           </a>
 
           <div className="hidden md:flex items-center space-x-1">

@@ -29,7 +29,7 @@ const Skills = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-5xl md:text-7xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+        <h1 className="text-4xl md:text-5xl font-black text-[var(--text-h)] tracking-tighter mb-6">
           Skills.
         </h1>
       </section>
@@ -39,32 +39,32 @@ const Skills = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 gap-4"
       >
         {skills.map((group) => (
           <motion.article
             key={group.title}
             variants={cardVariants}
             whileHover={{ y: -6 }}
-            className="bento-card p-10 space-y-6"
+            className="bento-card p-8 space-y-4"
           >
-            <h2 className="text-2xl font-bold text-[var(--text-h)]">
+            <h2 className="text-xl font-bold text-[var(--text-h)]">
               {group.title}
             </h2>
 
             {group.items ? (
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {group.items.map((item) => (
                   <p
                     key={item}
-                    className="text-lg leading-relaxed font-medium text-[var(--text)]"
+                    className="text-base leading-relaxed font-medium text-[var(--text)]"
                   >
                     {item}
                   </p>
                 ))}
               </div>
             ) : group.badges ? (
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2">
                 {group.badges.map((badge, idx) => (
                   <motion.div
                     key={badge.label}
@@ -79,13 +79,13 @@ const Skills = () => {
                       src={badge.src}
                       alt={badge.label}
                       loading="lazy"
-                      className="h-8 md:h-9 w-auto"
+                      className="h-7 md:h-8 w-auto"
                     />
                   </motion.div>
                 ))}
               </div>
             ) : (
-              <p className="text-base leading-relaxed font-medium text-[var(--text)]">
+              <p className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]">
                 {group.text}
               </p>
             )}

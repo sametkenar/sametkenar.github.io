@@ -11,23 +11,23 @@ const Leadership = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-5xl md:text-7xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+        <h1 className="text-4xl md:text-5xl font-black text-[var(--text-h)] tracking-tighter mb-6">
           Service and leadership.
         </h1>
       </section>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {leadership.map((item) => (
           <article
             key={`${item.title}-${item.venue}`}
-            className="bento-card p-10 space-y-6"
+            className="bento-card p-8 space-y-4"
           >
             <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-              <div className="space-y-2">
-                <h2 className="text-2xl font-bold text-[var(--text-h)]">
+              <div className="space-y-1">
+                <h2 className="text-xl font-bold text-[var(--text-h)]">
                   {item.title}
                 </h2>
-                <p className="text-lg font-semibold text-[var(--text)]">
+                <p className="text-base font-semibold text-[var(--text)]">
                   {item.venue}
                 </p>
               </div>
@@ -38,11 +38,11 @@ const Leadership = () => {
               </p>
             </div>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {item.items.map((detail) => (
                 <p
                   key={detail}
-                  className="text-base leading-relaxed font-medium text-[var(--text)]"
+                  className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]"
                 >
                   {detail}
                 </p>

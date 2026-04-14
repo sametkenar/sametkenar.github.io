@@ -11,22 +11,22 @@ const Education = () => {
       className="space-y-12"
     >
       <section>
-        <h1 className="text-5xl md:text-7xl font-black text-[var(--text-h)] tracking-tighter mb-6">
+        <h1 className="text-4xl md:text-5xl font-black text-[var(--text-h)] tracking-tighter mb-6">
           Education.
         </h1>
       </section>
 
-      <div className="space-y-6">
+      <div className="space-y-4">
         {education.map((item) => (
           <article
             key={`${item.title}-${item.venue}`}
-            className="bento-card p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
+            className="bento-card p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6"
           >
-            <div className="space-y-2">
-              <h2 className="text-2xl md:text-3xl font-bold text-[var(--text-h)] leading-tight">
+            <div className="space-y-1">
+              <h2 className="text-xl md:text-2xl font-bold text-[var(--text-h)] leading-tight">
                 {item.title}
               </h2>
-              <p className="text-lg font-semibold text-[var(--text)]">{item.venue}</p>
+              <p className="text-base font-semibold text-[var(--text)]">{item.venue}</p>
             </div>
 
             <p className="flex items-center gap-2 text-sm font-black uppercase tracking-widest text-[var(--text)] opacity-70">

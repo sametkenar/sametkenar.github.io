@@ -9,8 +9,8 @@ import Leadership from './pages/Leadership';
 function App() {
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto px-6 space-y-32 pb-32">
-        <section id="home" className="pt-20">
+      <div className="max-w-6xl mx-auto px-6 space-y-20 pb-20">
+        <section id="home" className="pt-10">
           <Home />
         </section>
         
