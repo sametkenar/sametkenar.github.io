@@ -1,7 +1,7 @@
-export const experience = [
+﻿export const experience = [
   {
     title: "IT Business Analyst",
-    venue: "TPF INGENIERÍA TURKIYE",
+    venue: "TPF INGENIERÍA TÜRKİYE",
     logo: "/tpf-logo.png",
     location: "Ankara, Türkiye",
     date: "November 2025 - Present",
@@ -37,8 +37,8 @@ export const experience = [
           src: "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
         },
         {
-          label: ".NET Core",
-          src: "https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white",
+          label: "ASP.NET Core",
+          src: "https://img.shields.io/badge/ASP.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white",
         },
         {
           label: "C#",
@@ -293,3 +293,4 @@ export const experience = [
     },
   },
 ];
+
