@@ -10,12 +10,6 @@ const Leadership = () => {
       viewport={{ once: true }}
       className="space-y-12"
     >
-      <section>
-        <h1 className="text-3xl md:text-4xl font-black text-[var(--text-h)] tracking-tighter mb-5">
-          Service and leadership.
-        </h1>
-      </section>
-
       <div className="space-y-4">
         {leadership.map((item) => (
           <article
@@ -32,22 +26,17 @@ const Leadership = () => {
                 </p>
               </div>
 
-              <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[var(--text)] opacity-70">
+              <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text)] opacity-70">
                 <Calendar size={14} />
                 {item.date}
               </p>
             </div>
 
-            <div className="space-y-2">
+            <ul className="list-disc pl-5 space-y-2 text-sm md:text-base leading-relaxed font-medium text-[var(--text)]">
               {item.items.map((detail) => (
-                <p
-                  key={detail}
-                  className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]"
-                >
-                  {detail}
-                </p>
+                <li key={detail}>{detail}</li>
               ))}
-            </div>
+            </ul>
           </article>
         ))}
       </div>

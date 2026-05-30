@@ -1,21 +1,8 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Globe, Mail, MapPin } from 'lucide-react';
-import { useEffect } from 'react';
 import profileImg from '../assets/sametkenar.png';
 import { profile } from '../data/profile';
 
 const Home = () => {
-  useEffect(() => {
-    const handleMouseMove = (event) => {
-      document.body.style.setProperty('--mouse-x', `${event.clientX}px`);
-      document.body.style.setProperty('--mouse-y', `${event.clientY}px`);
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.12, delayChildren: 0.08 } },
@@ -33,8 +20,6 @@ const Home = () => {
 
   return (
     <>
-      <div className="spotlight" />
-
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -42,13 +27,11 @@ const Home = () => {
         className="space-y-6 relative z-10"
       >
         <div className="grid grid-cols-1 md:grid-cols-12 gap-5 auto-rows-[minmax(120px,auto)]">
-          {/* Main Hero Section */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-8 p-6 bento-card flex flex-col justify-center space-y-4 overflow-hidden"
+            className="md:col-span-8 md:row-span-2 self-center h-48 py-2 px-6 bento-card flex flex-col justify-center space-y-1 overflow-hidden"
           >
-            <div className="hero-orb" />
-            <div className="space-y-4 relative z-10">
+            <div className="space-y-1 relative z-10">
               <motion.h1
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -64,75 +47,34 @@ const Home = () => {
                 className="hero-divider"
               />
               <p className="text-sm md:text-base text-[var(--text)] font-medium leading-relaxed max-w-3xl">
-                {profile.bio}
+                IT Business Analyst building AI-powered applications and internal systems that solve real business problems.
               </p>
-            </div>
-          </motion.div>
-
-          {/* Profile Image - Spans 3 rows to match bio, contact, profiles */}
-          <motion.div
-            variants={itemVariants}
-            className="md:col-span-4 md:row-span-3 bento-card relative group overflow-hidden"
-          >
-            <div className="absolute inset-0 hero-image-glow" />
-            <img
-              src={profileImg}
-              alt="Samet Kenar"
-              className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 grayscale group-hover:grayscale-0"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60"></div>
-          </motion.div>
-
-          {/* Contact Section - Full width of left column (8) */}
-          <motion.div variants={itemVariants} className="md:col-span-8 p-6 bento-card space-y-4">
-            <h2 className="text-[11px] font-black tracking-widest uppercase text-[var(--text)] opacity-50">
-              Contact
-            </h2>
-            <div className="flex flex-wrap gap-x-8 gap-y-4">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
-              >
-                <Mail size={16} className="text-[var(--accent)]" />
-                <span className="text-sm font-medium leading-relaxed">{profile.email}</span>
-              </a>
-              <a
-                href={profile.website}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors"
-              >
-                <Globe size={16} className="text-[var(--accent)]" />
-                <span className="text-sm font-medium leading-relaxed">{profile.website}</span>
-              </a>
-              <div className="flex items-center gap-3 text-[var(--text)]">
-                <MapPin size={16} className="text-[var(--accent)]" />
-                <span className="text-sm font-medium leading-relaxed">{profile.location}</span>
+              <div className="flex flex-wrap gap-1">
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+                  Web & Desktop Developer
+                </span>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+                  Data Scientist & Statistician
+                </span>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-xs font-semibold uppercase tracking-wide text-[var(--text)]">
+                  Business Analyst
+                </span>
               </div>
             </div>
           </motion.div>
 
-          {/* Profiles Section - Full width of left column (8) */}
-          <motion.div variants={itemVariants} className="md:col-span-8 p-6 bento-card space-y-4">
-            <h2 className="text-[11px] font-black tracking-widest uppercase text-[var(--text)] opacity-50">
-              Profiles
-            </h2>
-            <div className="flex flex-wrap gap-6">
-              {profile.profiles.map((item) => (
-                <motion.a
-                  key={item.label}
-                  href={item.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  whileHover={{ x: 4 }}
-                  className="flex items-center gap-3 text-[var(--text)] hover:text-[var(--text-h)] transition-colors text-sm"
-                >
-                  <span className="font-semibold">{item.label}</span>
-                  <ArrowRight size={14} className="text-[var(--accent)]" />
-                </motion.a>
-              ))}
-            </div>
+          <motion.div
+            variants={itemVariants}
+            className="md:col-span-4 md:row-span-2 bento-card relative group overflow-hidden"
+          >
+            <img
+              src={profileImg}
+              alt="Samet Kenar"
+              className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg)] via-transparent to-transparent opacity-60"></div>
           </motion.div>
+
         </div>
       </motion.div>
     </>

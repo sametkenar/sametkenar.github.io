@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { skills } from '../data/skills';
 
-const Skills = () => {
+const Skills = ({ showHeading = true }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -28,11 +28,13 @@ const Skills = () => {
       viewport={{ once: true }}
       className="space-y-12"
     >
-      <section>
-        <h1 className="text-3xl md:text-4xl font-black text-[var(--text-h)] tracking-tighter mb-5">
-          Skills.
-        </h1>
-      </section>
+      {showHeading && (
+        <section>
+          <h1 className="text-3xl md:text-4xl font-black text-[var(--text-h)] tracking-tighter mb-5">
+            Expertise.
+          </h1>
+        </section>
+      )}
 
       <motion.div
         variants={containerVariants}
@@ -53,16 +55,11 @@ const Skills = () => {
             </h2>
 
             {group.items ? (
-              <div className="space-y-2">
+              <ul className="list-disc pl-5 space-y-2 text-sm md:text-base text-[var(--text)] leading-relaxed">
                 {group.items.map((item) => (
-                  <p
-                    key={item}
-                    className="text-sm md:text-base leading-relaxed font-medium text-[var(--text)]"
-                  >
-                    {item}
-                  </p>
+                  <li key={item}>{item}</li>
                 ))}
-              </div>
+              </ul>
             ) : group.badges ? (
               <div className="flex flex-wrap gap-2">
                 {group.badges.map((badge, idx) => (

@@ -4,15 +4,15 @@ import {
   FolderOpen,
   GraduationCap,
   Home,
+  Mail,
   Menu,
   Moon,
-  Sparkles,
   Sun,
   UserRound,
   X,
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import resumePdf from '../assets/Samet_Kenar_CV.pdf';
+import { Link, useLocation } from 'react-router-dom';
 import { profile } from '../data/profile';
 
 const GithubIcon = ({ size = 20 }) => (
@@ -33,65 +33,65 @@ const GithubIcon = ({ size = 20 }) => (
 
 const Layout = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'dark');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const location = useLocation();
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  const navItems = [
-    { name: 'Home', path: '#home', icon: <Home size={16} /> },
-    { name: 'Education', path: '#education', icon: <GraduationCap size={16} /> },
-    { name: 'Work', path: '#experience', icon: <Briefcase size={16} /> },
-    { name: 'Projects', path: '#projects', icon: <FolderOpen size={16} /> },
-    { name: 'Skills', path: '#skills', icon: <Sparkles size={16} /> },
-    { name: 'Service', path: '#leadership', icon: <UserRound size={16} /> },
-  ];
+  useEffect(() => {
+    setIsMenuOpen(false);
+    if (!location.hash) {
+      window.scrollTo({ top: 0, left: 0 });
+      return;
+    }
 
-  const handleScroll = (event, targetId) => {
-    event.preventDefault();
-    const element = document.querySelector(targetId);
+    const elementId = location.hash.replace('#', '');
+    const element = document.getElementById(elementId);
     if (!element) {
       return;
     }
 
     const offset = 80;
-    const bodyRect = document.body.getBoundingClientRect().top;
-    const elementRect = element.getBoundingClientRect().top;
-    const elementPosition = elementRect - bodyRect;
-    const offsetPosition = elementPosition - offset;
-
+    const elementTop = element.getBoundingClientRect().top + window.scrollY;
     window.scrollTo({
-      top: offsetPosition,
+      top: elementTop - offset,
       behavior: 'smooth',
     });
-    setIsMenuOpen(false);
-  };
+  }, [location]);
+
+  const navItems = [
+    { name: 'Home', path: '/#home', icon: <Home size={16} /> },
+    { name: 'About', path: '/about', icon: <GraduationCap size={16} /> },
+    { name: 'Work', path: '/experience', icon: <Briefcase size={16} /> },
+    { name: 'Projects', path: '/projects', icon: <FolderOpen size={16} /> },
+    { name: 'Leadership', path: '/leadership', icon: <UserRound size={16} /> },
+    { name: 'Contact', path: '/contact', icon: <Mail size={16} /> },
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
       <header className="sticky top-0 z-50 bg-[var(--bg)]/80 backdrop-blur-xl border-b border-[var(--border)]">
         <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between gap-4">
-          <a
-            href="#home"
-            onClick={(event) => handleScroll(event, '#home')}
-            className="text-xl font-black text-[var(--text-h)] tracking-tighter hover:text-[#6366f1] transition-all duration-300"
+          <Link
+            to="/#home"
+            className="text-xl font-black text-[var(--text-h)] tracking-tighter hover:text-[var(--accent)] transition-all duration-300"
           >
             SK.
-          </a>
+          </Link>
 
           <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.path}
-                onClick={(event) => handleScroll(event, item.path)}
+                to={item.path}
                 className="flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium text-[var(--text)] hover:text-[var(--text-h)] hover:bg-[var(--accent)]/10 transition-all"
               >
                 {item.icon}
                 <span>{item.name}</span>
-              </a>
+              </Link>
             ))}
 
             <div className="w-px h-6 bg-[var(--border)] mx-4"></div>
@@ -104,16 +104,6 @@ const Layout = ({ children }) => {
               {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </button>
 
-            <a
-              href="/Samet_Kenar_CV.pdf"
-              download="Samet_Kenar_CV.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center space-x-2 px-6 py-2 rounded-full bg-[var(--text-h)] text-[var(--bg)] text-sm font-bold hover:bg-[#6366f1] hover:text-white transition-all shadow-md"
-            >
-              <FileText size={16} />
-              <span>CV</span>
-            </a>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
@@ -137,15 +127,14 @@ const Layout = ({ children }) => {
         {isMenuOpen && (
           <div className="md:hidden border-t border-[var(--border)] bg-[var(--bg)] p-4 space-y-2">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.name}
-                href={item.path}
-                onClick={(event) => handleScroll(event, item.path)}
+                to={item.path}
                 className="flex items-center space-x-4 p-4 rounded-xl text-lg font-bold text-[var(--text)] hover:bg-[var(--accent)]/10 hover:text-[var(--text-h)] transition-all"
               >
                 {item.icon}
                 <span>{item.name}</span>
-              </a>
+              </Link>
             ))}
           </div>
         )}
@@ -167,7 +156,7 @@ const Layout = ({ children }) => {
               href="https://github.com/sametkenar"
               target="_blank"
               rel="noreferrer"
-              className="p-3 border border-[var(--border)] rounded-full text-[var(--text-h)] hover:border-[#6366f1] hover:text-[#6366f1] transition-all"
+              className="p-3 border border-[var(--border)] rounded-full text-[var(--text-h)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
             >
               <GithubIcon size={22} />
             </a>

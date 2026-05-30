@@ -1,39 +1,27 @@
+import { Route, Routes } from 'react-router-dom';
 import Layout from './layouts/Layout';
-import Home from './pages/Home';
-import Education from './pages/Education';
-import Experience from './pages/Experience';
-import Projects from './pages/Projects';
-import Skills from './pages/Skills';
-import Leadership from './pages/Leadership';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import ExperienceDetail from './pages/ExperienceDetail';
+import ExperiencePage from './pages/ExperiencePage';
+import LeadershipPage from './pages/LeadershipPage';
+import ProjectDetail from './pages/ProjectDetail';
+import ProjectsPage from './pages/ProjectsPage';
 
 function App() {
   return (
     <Layout>
-      <div className="max-w-6xl mx-auto px-6 space-y-10 pb-10">
-        <section id="home" className="pt-6">
-          <Home />
-        </section>
-        
-        <section id="education">
-          <Education />
-        </section>
-        
-        <section id="experience">
-          <Experience />
-        </section>
-
-        <section id="projects">
-          <Projects />
-        </section>
-
-        <section id="skills">
-          <Skills />
-        </section>
-
-        <section id="leadership">
-          <Leadership />
-        </section>
-      </div>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/experience/:slug" element={<ExperienceDetail />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route path="/projects/:slug" element={<ProjectDetail />} />
+        <Route path="/leadership" element={<LeadershipPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
     </Layout>
   );
 }
